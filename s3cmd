@@ -101,7 +101,7 @@ def subcmd_bucket_usage(s3, uri):
 
     except S3Error, e:
         if S3.codes.has_key(e.info["Code"]):
-            error(S3.codes[e.info["Code"]] % bucket)
+            error(S3.codes[e.info["Code"]] % uri.bucket())
         raise
 
     except KeyboardInterrupt, e:
